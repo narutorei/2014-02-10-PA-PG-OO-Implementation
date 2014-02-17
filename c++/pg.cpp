@@ -5,8 +5,14 @@
 
 #define ONE 1.0
 
+/**
+ * Classe de Progressão geométrica, extendendo a classe de PA
+ */
 class PG: public PA {
 
+	/**
+	 * Métodos privados
+	 */
 	private:
 		/**
 		 * Calcula o enézimo termo da PG, definido por nTerms

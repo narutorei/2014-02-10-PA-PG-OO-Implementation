@@ -6,8 +6,14 @@
 #define ONE 1.0
 #define TWO 2.0
 
+/**
+ * Classe da Progressão Aritmética
+ */
 class PA {
 
+	/**
+	 * Propriedades e métodos protegidos
+	 */
 	protected:
 		/**
 		 * Primeiro termo
@@ -60,7 +66,9 @@ class PA {
 			return (this->nTerms * (this->firstTerm * this->getNthTerm())) / TWO;
 		}
 
-
+	/**
+	 * Métodos públicos
+	 */
 	public:
 
 		/**
