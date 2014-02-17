@@ -61,6 +61,9 @@ int main()
 		if(e == PA::EXCEPTION_INVALID_NUM_TERMS) {
 			std::cout << "Número de termos inválido. Abortando\n";
 			exit(1);
+		} else if(e == PA::EXCEPTION_INVALID_TYPE) {
+			std::cout << "Tipo inválido, contate o suporte ;)";
+			exit(1);
 		} else throw e;
 	}
 
