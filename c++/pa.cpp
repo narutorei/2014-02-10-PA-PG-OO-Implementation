@@ -88,6 +88,11 @@ class PA {
 		/**
 		 * Getters & Setters
 		 */
+
+		/**
+		 * Setter para o primeiro termo
+		 * @param ft Primeiro termo
+		 */
 		void setFirstTerm(float ft) {
 
 			this->setUpdated(true);
@@ -96,12 +101,20 @@ class PA {
 
 		}
 
+		/**
+		 * Getter do primeiro termo
+		 * @return o primeiro termo
+		 */
 		float getFirstTerm() {
 
 			return firstTerm;
 
 		}
 
+		/**
+		 * Setter do da razão
+		 * @param r Razão
+		 */
 		void setRatio(float r) {
 
 			this->setUpdated(true);
@@ -110,13 +123,22 @@ class PA {
 
 		}
 
+		/**
+		 * Getter da razão
+		 * @return a Razão
+		 */
 		float getRatio() {
 
 			return ratio;
 
 		}
 
-		void setNumTerms(float nt) throw (float) {
+		/**
+		 * Setter do número de termos da PA
+		 * @param float o número de termos
+		 * @throws lança uma exceção se o número de termos for negativo ou igual à zero
+		 */
+		void setNumTerms(float nt) throw (unsigned) {
 
 			// Lança uma exceção se o número de termos for menor ou igual que zero
 			if(nt <= 0)
@@ -128,16 +150,28 @@ class PA {
 
 		}
 
+		/**
+		 * Getter do número de termos
+		 * @return o número de termos
+		 */
 		float getNumTerms() {
 
 			return this->nTerms;
 
 		}
 
+		/**
+		 * Setter do estado do objeto, para o lazy loading dos cálculos
+		 * @param u true|false true para atualizado, false para não atualizado
+		 */
 		void setUpdated(bool u) {
 			this->updated = u;
 		}
 
+		/**
+		 * Getter de updated
+		 * @return se foi atualizado ou não
+		 */
 		bool getUpdated() {
 			return this->updated;
 		}
@@ -145,6 +179,12 @@ class PA {
 
 		/**
 		 * Métodos de negócio
+		 */
+
+		/**
+		 * Retorna o N termo, por lazy loading
+		 * @return o enézimo termo, definido por nTerms,
+		 *           calculado por lazy loading
 		 */
 		float getNthTerm() {
 
@@ -155,10 +195,18 @@ class PA {
 
 		}
 
+		/**
+		 * Calcula o enézimo termo
+		 * @return o enézimo termo calculado
+		 */
 		float calculateNthTerm() {
 			return this->firstTerm + (this->nTerms - ONE) * this->ratio;
 		}
 
+		/**
+		 * Getter da soma da pa, calculada por lazy loading
+		 * @return a soma da pa, calculado por lazy loading
+		 */
 		float getSum() {
 
 			if(this->updated || this->resultSum == ZERO)
@@ -168,6 +216,10 @@ class PA {
 
 		}
 
+		/**
+		 * Calcula a soma da PA
+		 * @return a soma da PA
+		 */
 		float calculateSum() {
 			return (this->nTerms * (this->firstTerm * getNthTerm())) / TWO;
 		}
