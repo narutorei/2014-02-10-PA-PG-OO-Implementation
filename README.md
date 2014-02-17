@@ -1,7 +1,5 @@
 Progressão Aritmética
-=====================
 Progressão Geométrica
-=====================
 Implementação em OO em PHP e C++
 ================================
 
