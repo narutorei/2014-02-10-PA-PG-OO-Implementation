@@ -40,6 +40,21 @@ class PA {
 
 	public:
 
+		/**
+		 * Tipo de PA, crescente
+		 */
+		const int TYPE_CRESCENT = 1;
+
+		/**
+		 * Tipo de PA, decrescente
+		 */
+		const int TYPE_DECRECENT = 2;
+
+		/**
+		 * Tipo de PA, constante
+		 */
+		const int TYPE_CONSTANT = 3;
+
 		PA() {}
 
 		/**
