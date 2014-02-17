@@ -47,6 +47,7 @@ class PA {
 		 * @return o enézimo termo calculado
 		 */
 		virtual float calculateNthTerm() {
+			this->setUpdated(false);
 			return this->firstTerm + (this->nTerms - ONE) * this->ratio;
 		}
 
@@ -55,6 +56,7 @@ class PA {
 		 * @return a soma da PA
 		 */
 		virtual float calculateSum() {
+			this->setUpdated(false);
 			return (this->nTerms * (this->firstTerm * this->getNthTerm())) / TWO;
 		}
 
