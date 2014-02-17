@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#define ZERO 0.0
+#define ONE 1.0
+#define TWO 2.0
+
 class PA {
 
 	protected:
@@ -26,12 +30,12 @@ class PA {
 		/**
 		 * Resultado do N termo
 		 */
-		float resultNth = 0.0;
+		float resultNth = ZERO;
 
 		/**
 		 * Resultado da soma
 		 */
-		float resultSum = 0.0;
+		float resultSum = ZERO;
 
 		/**
 		 * Guarda o estado do objeto
@@ -43,22 +47,35 @@ class PA {
 		/**
 		 * Tipo de PA, crescente
 		 */
-		const int TYPE_CRESCENT = 1;
+		const unsigned TYPE_CRESCENT = 1;
 
 		/**
 		 * Tipo de PA, decrescente
 		 */
-		const int TYPE_DECRESCENT = 2;
+		const unsigned TYPE_DECRESCENT = 2;
 
 		/**
 		 * Tipo de PA, constante
 		 */
-		const int TYPE_CONSTANT = 3;
+		const unsigned TYPE_CONSTANT = 3;
 
+		/**
+		 * Constante para a exceção de número de termos inválido
+		 */
+		const unsigned EXCEPTION_INVALID_NUM_TERMS = 1;
+
+		/**
+		 * Constante para a exceção para tipo inválido
+		 */
+		const unsigned EXCEPTION_INVALID_TYPE = 2;
+
+		/**
+		 * Construtor sem inicialização
+		 */
 		PA() {}
 
 		/**
-		 * Construtor
+		 * Construtor para inicializar todas as variáveis de uma vez
 		 */
 		PA (float ft, float r, float nt) {
 
@@ -131,7 +148,7 @@ class PA {
 		 */
 		float getNthTerm() {
 
-			if(this->updated || this->resultNth == 0.0)
+			if(this->updated || this->resultNth == ZERO)
 				this->resultNth = this->calculateNthTerm();
 
 			return this->resultNth;
@@ -139,12 +156,12 @@ class PA {
 		}
 
 		float calculateNthTerm() {
-			return this->firstTerm + (this->nTerms - 1.0) * this->ratio;
+			return this->firstTerm + (this->nTerms - ONE) * this->ratio;
 		}
 
 		float getSum() {
 
-			if(this->updated || this->resultSum == 0.0)
+			if(this->updated || this->resultSum == ZERO)
 				this->resultSum = this->calculateSum();
 
 			return this->resultSum;
@@ -152,20 +169,20 @@ class PA {
 		}
 
 		float calculateSum() {
-			return (this->nTerms * (this->firstTerm * getNthTerm())) / 2.0;
+			return (this->nTerms * (this->firstTerm * getNthTerm())) / TWO;
 		}
 
 		/**
 		 * Verifica o tipo de PA
-		 * @return int, o tipo de PA
+		 * @return unsigned int, o tipo de PA
 		 * @throws 2, Tipo inválido de PA
 		 */
-		int getType() {
-			if(this->ratio > 0.0)
+		unsigned getType() {
+			if(this->ratio > ZERO)
 				return PA::TYPE_CRESCENT;
-			else if(this->ratio < 0.0)
+			else if(this->ratio < ZERO)
 				return PA::TYPE_DECRESCENT;
-			else if(this->ratio == 0.0)
+			else if(this->ratio == ZERO)
 				return PA::TYPE_CONSTANT;
 			else
 				throw 2;
