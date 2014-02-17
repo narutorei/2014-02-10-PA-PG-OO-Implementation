@@ -42,6 +42,23 @@ class PA {
 		 */
 		bool updated;
 
+		/**
+		 * Calcula o enézimo termo
+		 * @return o enézimo termo calculado
+		 */
+		float calculateNthTerm() {
+			return this->firstTerm + (this->nTerms - ONE) * this->ratio;
+		}
+
+		/**
+		 * Calcula a soma da PA
+		 * @return a soma da PA
+		 */
+		float calculateSum() {
+			return (this->nTerms * (this->firstTerm * getNthTerm())) / TWO;
+		}
+
+
 	public:
 
 		/**
@@ -196,14 +213,6 @@ class PA {
 		}
 
 		/**
-		 * Calcula o enézimo termo
-		 * @return o enézimo termo calculado
-		 */
-		float calculateNthTerm() {
-			return this->firstTerm + (this->nTerms - ONE) * this->ratio;
-		}
-
-		/**
 		 * Getter da soma da pa, calculada por lazy loading
 		 * @return a soma da pa, calculado por lazy loading
 		 */
@@ -214,14 +223,6 @@ class PA {
 
 			return this->resultSum;
 
-		}
-
-		/**
-		 * Calcula a soma da PA
-		 * @return a soma da PA
-		 */
-		float calculateSum() {
-			return (this->nTerms * (this->firstTerm * getNthTerm())) / TWO;
 		}
 
 		/**

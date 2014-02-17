@@ -7,7 +7,7 @@
 
 class PG: public PA {
 
-	public:
+	private:
 		/**
 		 * Calcula o enézimo termo da PG, definido por nTerms
 		 * @return enézimo termo calculado
