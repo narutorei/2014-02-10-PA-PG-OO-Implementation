@@ -55,7 +55,7 @@ class PA {
 		 * @return a soma da PA
 		 */
 		virtual float calculateSum() {
-			return (this->nTerms * (this->firstTerm * getNthTerm())) / TWO;
+			return (this->nTerms * (this->firstTerm * this->getNthTerm())) / TWO;
 		}
 
 
@@ -96,9 +96,9 @@ class PA {
 		 */
 		PA (float ft, float r, float nt) {
 
-			setFirstTerm(ft);
-			setRatio(r);
-			setNumTerms(nt);
+			this->setFirstTerm(ft);
+			this->setRatio(r);
+			this->setNumTerms(nt);
 
 		}
 
@@ -124,7 +124,7 @@ class PA {
 		 */
 		float getFirstTerm() {
 
-			return firstTerm;
+			return this->firstTerm;
 
 		}
 
@@ -146,7 +146,7 @@ class PA {
 		 */
 		float getRatio() {
 
-			return ratio;
+			return this->ratio;
 
 		}
 
