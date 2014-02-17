@@ -64,27 +64,27 @@ class PA {
 		/**
 		 * Tipo de PA, crescente
 		 */
-		const unsigned TYPE_CRESCENT = 1;
+		const static unsigned TYPE_CRESCENT = 1;
 
 		/**
 		 * Tipo de PA, decrescente
 		 */
-		const unsigned TYPE_DECRESCENT = 2;
+		const static unsigned TYPE_DECRESCENT = 2;
 
 		/**
 		 * Tipo de PA, constante
 		 */
-		const unsigned TYPE_CONSTANT = 3;
+		const static unsigned TYPE_CONSTANT = 3;
 
 		/**
 		 * Constante para a exceção de número de termos inválido
 		 */
-		const unsigned EXCEPTION_INVALID_NUM_TERMS = 1;
+		const static unsigned EXCEPTION_INVALID_NUM_TERMS = 1;
 
 		/**
 		 * Constante para a exceção para tipo inválido
 		 */
-		const unsigned EXCEPTION_INVALID_TYPE = 2;
+		const static unsigned EXCEPTION_INVALID_TYPE = 2;
 
 		/**
 		 * Construtor sem inicialização
@@ -155,7 +155,7 @@ class PA {
 		 * @param float o número de termos
 		 * @throws lança uma exceção se o número de termos for negativo ou igual à zero
 		 */
-		void setNumTerms(float nt) throw (unsigned) {
+		void setNumTerms(float nt) {
 
 			// Lança uma exceção se o número de termos for menor ou igual que zero
 			if(nt <= 0)
