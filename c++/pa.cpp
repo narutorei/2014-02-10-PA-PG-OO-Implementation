@@ -48,7 +48,7 @@ class PA {
 		/**
 		 * Tipo de PA, decrescente
 		 */
-		const int TYPE_DECRECENT = 2;
+		const int TYPE_DECRESCENT = 2;
 
 		/**
 		 * Tipo de PA, constante
@@ -153,6 +153,22 @@ class PA {
 
 		float calculateSum() {
 			return (this->nTerms * (this->firstTerm * getNthTerm())) / 2.0;
+		}
+
+		/**
+		 * Verifica o tipo de PA
+		 * @return int, o tipo de PA
+		 * @throws 2, Tipo inválido de PA
+		 */
+		int getType() {
+			if(this->ratio > 0.0)
+				return PA::TYPE_CRESCENT;
+			else if(this->ratio < 0.0)
+				return PA::TYPE_DECRESCENT;
+			else if(this->ratio == 0.0)
+				return PA::TYPE_CONSTANT;
+			else
+				throw 2;
 		}
 
 };
