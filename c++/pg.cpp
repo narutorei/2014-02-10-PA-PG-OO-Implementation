@@ -6,11 +6,11 @@
 class PG: public PA {
 
 	public:
-		float getNthTerm() {
+		float calculateNthTerm() {
 			return this->firstTerm * pow(this->ratio, this->nTerms - 1.0);
 		}
 
-		float getSum() {
+		float calculateSum() {
 			return this->firstTerm * ((1.0 - pow(this->ratio, this->nTerms)) / (1.0 - this->ratio));
 		}
 

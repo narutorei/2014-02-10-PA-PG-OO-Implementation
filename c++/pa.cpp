@@ -23,6 +23,21 @@ class PA {
 		 */
 		float nTerms;
 
+		/**
+		 * Resultado do N termo
+		 */
+		float resultNth = 0.0;
+
+		/**
+		 * Resultado da soma
+		 */
+		float resultSum = 0.0;
+
+		/**
+		 * Guarda o estado do objeto
+		 */
+		bool updated;
+
 	public:
 
 		PA() {}
@@ -43,6 +58,8 @@ class PA {
 		 */
 		void setFirstTerm(float ft) {
 
+			this->setUpdated(true);
+
 			this->firstTerm = (float) ft;
 
 		}
@@ -54,6 +71,8 @@ class PA {
 		}
 
 		void setRatio(float r) {
+
+			this->setUpdated(true);
 
 			this->ratio = (float) r;
 
@@ -71,6 +90,8 @@ class PA {
 			if(nt <= 0)
 				throw 1;
 
+			this->setUpdated(true);
+
 			this->nTerms = (float) nt;
 
 		}
@@ -81,20 +102,42 @@ class PA {
 
 		}
 
+		void setUpdated(bool u) {
+			this->updated = u;
+		}
+
+		bool getUpdated() {
+			return this->updated;
+		}
+
 
 		/**
 		 * Métodos de negócio
 		 */
 		float getNthTerm() {
 
-			return this->firstTerm + (this->nTerms - 1.0) * this->ratio;
+			if(this->updated || this->resultNth == 0.0)
+				this->resultNth = this->calculateNthTerm();
 
+			return this->resultNth;
+
+		}
+
+		float calculateNthTerm() {
+			return this->firstTerm + (this->nTerms - 1.0) * this->ratio;
 		}
 
 		float getSum() {
 
-			return (this->nTerms * (this->firstTerm * getNthTerm())) / 2.0;
+			if(this->updated || this->resultSum == 0.0)
+				this->resultSum = this->calculateSum();
 
+			return this->resultSum;
+
+		}
+
+		float calculateSum() {
+			return (this->nTerms * (this->firstTerm * getNthTerm())) / 2.0;
 		}
 
 };
