@@ -97,7 +97,7 @@ class PA {
 		const static unsigned EXCEPTION_INVALID_TYPE = 2;
 
 		/**
-		 * Construtor sem inicialização
+		 * Construtor que inizialia as variaveis
 		 */
 		PA() {
 			this->setUpdated(ZERO);
