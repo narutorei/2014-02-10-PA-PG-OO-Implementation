@@ -99,7 +99,12 @@ class PA {
 		/**
 		 * Construtor sem inicialização
 		 */
-		PA() {}
+		PA() {
+			this->setUpdated(ZERO);
+			this->setRatio(ZERO);
+			this->setNumTerms(ONE);
+			this->setUpdated(false);
+		}
 
 		/**
 		 * Construtor para inicializar todas as variáveis de uma vez
